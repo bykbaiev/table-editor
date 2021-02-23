@@ -71,3 +71,12 @@ a:hover {
 .status-error {
     color: red;
 }
+
+.aggregations {
+    display: flex;
+    padding: 5px 10px;
+}
+
+.aggregation {
+    width: 50%;
+}

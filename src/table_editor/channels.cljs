@@ -8,6 +8,11 @@
 
 (def large-file-size 10000) ;; 10KB
 
+(defn is-valid [content]
+  (or
+   (nil? content)
+   (every? #(== (count %) 2) content)))
+
 ;; -------------------------
 ;; Transducers
 
@@ -24,6 +29,8 @@
 
 (def file-read (chan 1 (map extract-result)))
 
+(def table-updated (chan 1))
+
 ;; -------------------------
 ;; Loops
 
@@ -38,6 +45,18 @@
         (.readAsText file-reader file)))
     (recur (<! file-uploaded))))
 
-(go-loop []
-  (swap! state assoc :data (<! file-read))
-  (recur))
+(go-loop [content (<! file-read)]
+  (do
+    (if (is-valid content)
+      (put! table-updated content)
+      (reset! state {:err-msg "Invalid format: there should be 2 columns"}))
+    (recur (<! file-read))))
+
+(go-loop [content (<! table-updated)]
+  (let [nums (transduce (comp (map js/parseFloat) (filter #(not (js/isNaN %)))) conj [] (flatten content))
+        sum (reduce + 0 nums)
+        average (/ sum (count nums))]
+    (swap! state assoc :data content)
+    (swap! state assoc :average average)
+    (swap! state assoc :sum sum)
+    (recur (<! table-updated))))
