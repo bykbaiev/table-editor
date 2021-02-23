@@ -1,17 +1,9 @@
 (ns table-editor.file-loader
   (:require
-   [goog.labs.format.csv :as csv]))
+   [cljs.core.async :refer [put!]]
+   [table-editor.channels :refer [file-uploaded]]))
 
-(defn file-loader [state]
+
+(defn file-loader []
   [:div
-   [:input {:type "file" :on-change (fn [e]
-                                      (let [file (first (array-seq (.. e -target -files)))
-                                            file-reader (js/FileReader.)]
-                                        (set! (.-onload file-reader)
-                                              (fn [e]
-                                                (let [res (-> e .-target .-result csv/parse js->clj)]
-                                                  (println res)
-                                                  (swap! state update :data #((constantly res) %)))))
-                                        (.readAsText file-reader file)))}]
-   [:div "asdf"]])
-
+   [:input {:type "file" :accept ".csv" :on-change #(put! file-uploaded %)}]])

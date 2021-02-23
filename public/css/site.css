@@ -58,3 +58,16 @@ a:hover {
 .table-cell {
     width: 50%;
 }
+
+.status-msg {
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.status-success {
+    color: green;
+}
+
+.status-error {
+    color: red;
+}

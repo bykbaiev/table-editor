@@ -1,4 +1,6 @@
-(ns table-editor.table)
+(ns table-editor.table
+  (:require
+   [table-editor.state :refer [state]]))
 
 (defn table-row [row key header?]
   (let [fst (row 0) snd (row 1)]
@@ -9,7 +11,7 @@
 (defn row-hash [[category value]]
   (+ category value))
 
-(defn table [state]
+(defn table []
   [:div.table
    (let [rows (:data @state)]
      (when rows
