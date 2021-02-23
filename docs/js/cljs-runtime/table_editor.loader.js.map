@@ -1,0 +1,1 @@
+{"version":3,"sources":["table_editor/loader.cljs"],"mappings":";AAEA,AAAA,AAAMA;AAAN,AAAc,AAAA,AAACC","names":["table-editor.loader/func","cljs.core.println"],"sourcesContent":["(ns table-editor.loader)\n\n(defn func [] (println \"Hello world\"))\n"]}
