@@ -51,12 +51,16 @@ a:hover {
     background-color: lightgray;
 }
 
-.table-header {
-    font-weight: bold;
+.table-cell {
+    display: block;
+    width: 50%;
+    border: 0;
+    background: transparent;
+    line-height: 24px;
 }
 
-.table-cell {
-    width: 50%;
+.table-cell-header {
+    font-weight: bold;
 }
 
 .status-msg {
