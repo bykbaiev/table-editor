@@ -3,6 +3,7 @@
    [reagent.dom :as d]
    [table-editor.table :refer [table]]
    [table-editor.file-loader :refer [file-loader]]
+   [table-editor.download-file :refer [download-button]]
    [table-editor.state :refer [state]]))
 
 ;; -------------------------
@@ -21,6 +22,7 @@
    [:h2 "Table editor"]
    [file-loader]
    [message]
+   [download-button]
    [table]])
 
 ;; -------------------------

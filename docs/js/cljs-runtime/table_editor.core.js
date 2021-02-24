@@ -1,15 +1,13 @@
 goog.provide('table_editor.core');
+table_editor.core.message = (function table_editor$core$message(){
+var map__43356 = cljs.core.deref(table_editor.state.state);
+var map__43356__$1 = (((((!((map__43356 == null))))?(((((map__43356.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__43356.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__43356):map__43356);
+var file_name = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43356__$1,new cljs.core.Keyword(null,"file-name","file-name",-1654217259));
+var err_msg = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__43356__$1,new cljs.core.Keyword(null,"err-msg","err-msg",-1158512684));
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-msg","div.status-msg",1234343202),(cljs.core.truth_(err_msg)?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-error","div.status-error",1021942282),err_msg], null):null),(cljs.core.truth_((((err_msg == null))?file_name:false))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-success","div.status-success",820595218),cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic("File ",file_name,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([" is successfully loaded"], 0))], null):null)], null);
+});
 table_editor.core.home_page = (function table_editor$core$home_page(){
-var file_name = new cljs.core.Keyword(null,"file-name","file-name",-1654217259).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(table_editor.state.state));
-var content = new cljs.core.Keyword(null,"data","data",-232669377).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(table_editor.state.state));
-var error_message = new cljs.core.Keyword(null,"err-msg","err-msg",-1158512684).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(table_editor.state.state));
-return new cljs.core.PersistentVector(null, 6, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),"Table editor"], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.file_loader.file_loader], null),(cljs.core.truth_(error_message)?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-msg.status-error","div.status-msg.status-error",1059485762),error_message], null):null),(cljs.core.truth_((function (){var and__4115__auto__ = content;
-if(cljs.core.truth_(and__4115__auto__)){
-return file_name;
-} else {
-return and__4115__auto__;
-}
-})())?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.status-msg.status-success","div.status-msg.status-success",-541391229),cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic("File ",file_name,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([" is successfully loaded"], 0))], null):null),(cljs.core.truth_(content)?new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.table.table], null):null)], null);
+return new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h2","h2",-372662728),"Table editor"], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.file_loader.file_loader], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.core.message], null),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.table.table], null)], null);
 });
 table_editor.core.mount_root = (function table_editor$core$mount_root(){
 return reagent.dom.render.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [table_editor.core.home_page], null),document.getElementById("app"));

@@ -1,0 +1,1 @@
+{"version":3,"sources":["table_editor/utils.cljs"],"mappings":";AAEA,AAAA,AAAMA,AAAYC;AAAlB,AACE,AAACC,AAAS,AAACC,AAAcF","names":["table-editor.utils/non-number","value","js/isNaN","js/parseFloat"],"sourcesContent":["(ns table-editor.utils)\n\n(defn non-number [value]\n  (js/isNaN (js/parseFloat value)))\n"]}
